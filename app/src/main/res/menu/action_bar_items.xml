@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_addParkingSpot"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="Add parking spot"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_removeParkingSpot"
+        android:icon="@android:drawable/ic_delete"
+        android:title="Remove a parking spot"
+        app:showAsAction="never" />
+
+</menu>

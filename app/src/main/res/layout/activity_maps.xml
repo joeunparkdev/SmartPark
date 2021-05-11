@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:visibility="gone">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            class="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MapsActivity" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="50dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_bar"
+            app:srcCompat="@drawable/common_full_open_on_phone" />
+
+        <Button
+            android:id="@+id/nearbyButton"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="106dp"
+            android:layout_marginTop="95dp"
+            android:layout_marginEnd="95dp"
+            android:layout_marginBottom="627dp"
+            android:background="@drawable/custom_background"
+            android:backgroundTint="@color/white"
+            android:text="Filter"
+            android:textSize="10sp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/userButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="188dp"
+            android:clickable="true"
+            app:backgroundTint="@color/white"
+            app:srcCompat="@drawable/ic_baseline_person_24" />
+
+        <SearchView
+            android:id="@+id/search_bar"
+            android:layout_width="364dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="23dp"
+            android:layout_marginBottom="668dp"
+            android:background="@drawable/custom_background"
+            android:queryBackground="@android:color/transparent"
+            android:queryHint="Search......"
+            android:searchIcon="@drawable/ic_baseline_edit_location_24"
+            android:visibility="visible"></SearchView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/myLocationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="120dp"
+            android:clickable="true"
+            app:backgroundTint="@color/white"
+            app:srcCompat="@drawable/ic_baseline_gps_fixed_24" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/coordinator_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:translationZ="90dp">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="0dp" />
+
+            <fragment
+                android:id="@+id/parallax"
+                class="com.google.android.gms.maps.SupportStreetViewPanoramaFragment"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                tools:ignore="MissingClass" />
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/bottomsheet"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:background="@android:color/white"
+                app:behavior_anchorColor="@color/colorPrimary"
+                app:behavior_anchorHeight="auto"
+                app:behavior_collapsedColor="@android:color/white"
+                app:behavior_content_layout="@layout/custom_content"
+                app:behavior_header_layout="@layout/custom_header"
+                app:behavior_hideable="true"
+                app:behavior_peekHeight="100dp"
+                app:layout_behavior="com.team19.smartpark.models.GoogleMapsBottomSheetBehaviour" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    </RelativeLayout>
+
+    <include layout="@layout/bottom_sheet_persistent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_anchor="@+id/relativeLayout2"
+        app:layout_anchorGravity="center">
+
+        <HorizontalScrollView
+            android:id="@+id/scrollViewFilter"
+            android:layout_width="239dp"
+            android:layout_height="43dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.13">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                tools:visibility="gone">
+
+                <Spinner
+                    android:id="@+id/sortDistanceButton"
+                    android:layout_width="98dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/custom_background"
+                    android:entries="@array/string"
+                    android:popupBackground="@drawable/custom_background" />
+
+                <ToggleButton
+                    android:id="@+id/sortASButton"
+                    android:layout_width="98dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/custom_background"
+                    android:backgroundTint="@color/white"
+                    android:textOff="Available Spot"
+                    android:textOn="Available Spot"
+                    android:textSize="8dp"
+                    android:textStyle="bold" />
+
+                <ToggleButton
+                    android:id="@+id/sortFeesButton"
+                    android:layout_width="98dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/custom_background"
+                    android:backgroundTint="@color/white"
+                    android:textOff="Fees"
+                    android:textOn="Fees"
+                    android:textSize="8dp"
+                    android:textStyle="bold" />
+
+                <ToggleButton
+                    android:id="@+id/openButton"
+                    android:layout_width="98dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_background"
+                    android:backgroundTint="@color/white"
+                    android:textOff="Operating Hour"
+                    android:textOn="Operating Hour"
+                    android:textSize="8dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <Button
+            android:id="@+id/clearButton"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:background="@drawable/custom_background"
+            android:backgroundTint="@color/white"
+            android:text="X"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.956"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.13" />
+
+        <TextView
+            android:id="@+id/sortTextView"
+            android:layout_width="56dp"
+            android:layout_height="20dp"
+            android:text="Sort By: "
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.019"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.139" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

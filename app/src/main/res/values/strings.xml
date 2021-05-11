@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SmartPark</string>
+    <string name="title_activity_maps">SmartPark</string>
+    <string name="AVspots">available spots</string>
+    <string name="x">X</string>
+    <string-array name="string">
+        <item>Distance</item>
+        <item>100 m</item>
+        <item>200 m</item>
+        <item>300 m</item>
+        <item>400 m</item>
+        <item>500 m</item>
+    </string-array>
+</resources>
